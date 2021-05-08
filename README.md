@@ -46,7 +46,7 @@ In file `chatgui.h` / `chatgui.cpp`, I made `_chatLogic` an exclusive resource t
 In file `chatbot.h` / `chatbot.cpp`, I made changes to the class `ChatBot` such that it complies with the Rule of Five. I added a copy, copy assignment, move, and move assignment constructors.
 
 ### Task 3 : Exclusive Ownership 2
-In file `chatlogic.h` / `chatlogic.cpp`, adapt the vector `_nodes` in a way that the instances of `GraphNodes` to which the vector elements refer are exclusively owned by the class `ChatLogic`. Use an appropriate type of smart pointer to achieve this. Where required, make changes to the code such that data structures and function parameters reflect the changes. When passing the `GraphNode` instances to functions, make sure to not transfer ownership and try to contain the changes to class `ChatLogic` where possible. 
+In file `chatlogic.h` / `chatlogic.cpp`, I adapted the vector `_nodes` to be a vector of unique pointers to `GraphNodes` to ensure the vector elements are exclusively owned by the class `ChatLogic`. This required modifications to several functions. The destructor was modified to remove code destroying each of the nodes as the use of smart pointers enables auto-destruction when out of scope. Additionally, `LoadAnswerGraphFromFile` was converted to make use of the new smart pointer semantics.
 
 ### Task 4 : Moving Smart Pointers
 
