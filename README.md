@@ -43,7 +43,7 @@ Aside from the bug mentioned above, there are five additional major student task
 In file `chatgui.h` / `chatgui.cpp`, I made `_chatLogic` an exclusive resource to class `ChatbotPanelDialog` by making use of a unique pointer. I also changed the constructor and destructor of ChatBotPanelDialog to incorporate the change to a smart pointer.
 
 ### Task 2 : The Rule Of Five
-In file `chatbot.h` / `chatbot.cpp`, make changes to the class `ChatBot` such that it complies with the Rule of Five. Make sure to properly allocate / deallocate memory resources on the heap and also copy member data where it makes sense to you.  In each of the methods (e.g. the copy constructor), print a string of the type "ChatBot Copy Constructor" to the console so that you can see which method is called in later examples. 
+In file `chatbot.h` / `chatbot.cpp`, I made changes to the class `ChatBot` such that it complies with the Rule of Five. I added a copy, copy assignment, move, and move assignment constructors.
 
 ### Task 3 : Exclusive Ownership 2
 In file `chatlogic.h` / `chatlogic.cpp`, adapt the vector `_nodes` in a way that the instances of `GraphNodes` to which the vector elements refer are exclusively owned by the class `ChatLogic`. Use an appropriate type of smart pointer to achieve this. Where required, make changes to the code such that data structures and function parameters reflect the changes. When passing the `GraphNode` instances to functions, make sure to not transfer ownership and try to contain the changes to class `ChatLogic` where possible. 
