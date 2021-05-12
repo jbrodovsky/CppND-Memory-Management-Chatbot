@@ -71,11 +71,12 @@ ChatBot::ChatBot(ChatBot &&target){
   target._image = nullptr;
 }
 // move assignment constructor
-ChatBot &ChatBot::operator=(ChatBot &&target){
+ChatBot& ChatBot::operator=(ChatBot &&target){
   std::cout<<"ChatBot MOVE ASSIGNMENT constructor\n";
   if(this != &target){
     delete _image;
     _chatLogic = target._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     _rootNode = target._rootNode;
     _image = target._image;
     target._chatLogic = nullptr;

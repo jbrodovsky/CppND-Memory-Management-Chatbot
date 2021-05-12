@@ -124,7 +124,7 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
 
   // load answer graph from file
   _chatLogic->LoadAnswerGraphFromFile(dataPath + "src/answergraph.txt");
-
+  std::cout<<"MARKER\n";
   ////
   //// EOF STUDENT CODE
 }
