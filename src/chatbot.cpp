@@ -39,19 +39,17 @@ ChatBot::~ChatBot() {
   }
 }
 
-//// STUDENT CODE
-////
 // copy constructor
-ChatBot::ChatBot(const ChatBot &target){
-  std::cout<<"ChatBot COPY constructor\n";
+ChatBot::ChatBot(const ChatBot &target) {
+  std::cout << "ChatBot COPY constructor\n";
   _chatLogic = target._chatLogic;
   _rootNode = target._rootNode;
   _image = new wxBitmap(*target._image);
 }
 // copy assignment constructor
-ChatBot &ChatBot::operator=(const ChatBot &target){
-  std::cout<<"ChatBot COPY ASSIGNMENT constructor\n";
-  if(this != &target){
+ChatBot &ChatBot::operator=(const ChatBot &target) {
+  std::cout << "ChatBot COPY ASSIGNMENT constructor\n";
+  if (this != &target) {
     delete _image;
     _chatLogic = target._chatLogic;
     _rootNode = target._rootNode;
@@ -61,8 +59,8 @@ ChatBot &ChatBot::operator=(const ChatBot &target){
   return *this;
 }
 // move constructor
-ChatBot::ChatBot(ChatBot &&target){
-  std::cout<<"ChatBot MOVE constructor\n";
+ChatBot::ChatBot(ChatBot &&target) {
+  std::cout << "ChatBot MOVE constructor\n";
   _chatLogic = target._chatLogic;
   _rootNode = target._rootNode;
   _image = target._image;
@@ -71,9 +69,9 @@ ChatBot::ChatBot(ChatBot &&target){
   target._image = nullptr;
 }
 // move assignment constructor
-ChatBot& ChatBot::operator=(ChatBot &&target){
-  std::cout<<"ChatBot MOVE ASSIGNMENT constructor\n";
-  if(this != &target){
+ChatBot &ChatBot::operator=(ChatBot &&target) {
+  std::cout << "ChatBot MOVE ASSIGNMENT constructor\n";
+  if (this != &target) {
     delete _image;
     _chatLogic = target._chatLogic;
     _chatLogic->SetChatbotHandle(this);
@@ -85,8 +83,6 @@ ChatBot& ChatBot::operator=(ChatBot &&target){
   }
   return *this;
 }
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message) {
   // loop over all edges and keywords and compute Levenshtein distance to query
@@ -176,6 +172,5 @@ int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2) {
 
   int result = costs[n];
   delete[] costs;
-
   return result;
 }

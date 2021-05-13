@@ -2,9 +2,9 @@
 #define CHATLOGIC_H_
 
 #include "chatgui.h"
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 
 // forward declarations
 class ChatBot;
@@ -13,15 +13,9 @@ class GraphNode;
 
 class ChatLogic {
 private:
-  //// STUDENT CODE
-  ////
-
   // data handles (owned)
   std::vector<std::unique_ptr<GraphNode>> _nodes;
   std::vector<GraphEdge *> _edges;
-
-  ////
-  //// EOF STUDENT CODE
 
   // data handles (not owned)
   GraphNode *_currentNode;
